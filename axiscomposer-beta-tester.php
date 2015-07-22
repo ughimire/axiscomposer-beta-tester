@@ -77,7 +77,7 @@ if ( ! class_exists( 'AC_Beta_Tester' ) ) :
 		}
 
 		/**
-		 * Check wether or not the transients need to be overruled and API needs to be called for every single page load
+		 * Check whether or not the transients need to be overruled and API needs to be called for every single page load
 		 *
 		 * @return bool overrule or not
 		 */
@@ -88,7 +88,7 @@ if ( ! class_exists( 'AC_Beta_Tester' ) ) :
 		/**
 		 * Get New Version from GitHub
 		 *
-		 * @since 1.0
+		 * @since  1.0
 		 * @return int $version the version number
 		 */
 		public function get_latest_tag() {
@@ -109,7 +109,7 @@ if ( ! class_exists( 'AC_Beta_Tester' ) ) :
 					$tagged_version = $latest_tag->name;
 				}
 
-				// refresh every 6 hours
+				// Refresh every 6 hours
 				if ( ! empty( $tagged_version ) ) {
 					set_site_transient( md5( $this->config['slug'] ) . '_latest_tag', $tagged_version, 60*60*6 );
 				}
@@ -121,7 +121,7 @@ if ( ! class_exists( 'AC_Beta_Tester' ) ) :
 		/**
 		 * Get GitHub Data from the specified repository
 		 *
-		 * @since 1.0
+		 * @since  1.0
 		 * @return array $github_data the data
 		 */
 		public function get_github_data() {
@@ -153,7 +153,7 @@ if ( ! class_exists( 'AC_Beta_Tester' ) ) :
 		/**
 		 * Get update date
 		 *
-		 * @since 1.0
+		 * @since  1.0
 		 * @return string $date the date
 		 */
 		public function get_date() {
@@ -164,7 +164,7 @@ if ( ! class_exists( 'AC_Beta_Tester' ) ) :
 		/**
 		 * Get plugin description
 		 *
-		 * @since 1.0
+		 * @since  1.0
 		 * @return string $description the description
 		 */
 		public function get_description() {
@@ -175,7 +175,7 @@ if ( ! class_exists( 'AC_Beta_Tester' ) ) :
 		/**
 		 * Get Plugin data
 		 *
-		 * @since 1.0
+		 * @since  1.0
 		 * @return object $data the data
 		 */
 		public function get_plugin_data() {
@@ -185,8 +185,8 @@ if ( ! class_exists( 'AC_Beta_Tester' ) ) :
 		/**
 		 * Hook into the plugin update check and connect to GitHub
 		 *
-		 * @since 1.0
-		 * @param object  $transient the plugin data transient
+		 * @since  1.0
+		 * @param  object $transient the plugin data transient
 		 * @return object $transient updated plugin data transient
 		 */
 		public function api_check( $transient ) {
@@ -202,7 +202,7 @@ if ( ! class_exists( 'AC_Beta_Tester' ) ) :
 			// Update tags
 			$this->set_update_args();
 
-			// check the version and decide if it's new
+			// Check the version and decide if it's new
 			$update = version_compare( $this->config['new_version'], $this->config['version'], '>' );
 
 			if ( $update ) {
@@ -225,10 +225,10 @@ if ( ! class_exists( 'AC_Beta_Tester' ) ) :
 		/**
 		 * Get Plugin info
 		 *
-		 * @since 1.0
-		 * @param bool    $false  always false
-		 * @param string  $action the API function being performed
-		 * @param object  $args   plugin arguments
+		 * @since  1.0
+		 * @param  bool   $false  always false
+		 * @param  string $action the API function being performed
+		 * @param  object $args   plugin arguments
 		 * @return object $response the plugin info
 		 */
 		public function get_plugin_info( $false, $action, $response ) {

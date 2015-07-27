@@ -15,7 +15,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'AC_Beta_Tester' ) ) :
+/**
+ * Confirm axiscomposer is at least installed before doing anything
+ * Curiously, developers are discouraged from using WP_PLUGIN_DIR and not given a
+ * function with which to get the plugin directory, so this is what we have to do
+ */
+if ( ! file_exists( trailingslashit( dirname( dirname( __FILE__ ) ) ) . 'axiscomposer/axiscomposer.php' ) ) :
+
+	add_action( 'admin_notices', 'acbt_axiscomposer_not_installed' );
+
+elseif ( ! class_exists( 'AC_Beta_Tester' ) ) :
 
 	/**
 	 * AC_Beta_Tester Main Class
@@ -282,3 +291,16 @@ if ( ! class_exists( 'AC_Beta_Tester' ) ) :
 	add_action( 'admin_init', array( 'AC_Beta_Tester', 'instance' ) );
 
 endif;
+
+/**
+ * AxisComposer Not Installed Notice.
+ */
+if ( ! function_exists( 'acbt_axiscomposer_not_installed' ) ) {
+
+	function acbt_axiscomposer_not_installed() {
+
+		echo '<div class="error"><p>' . sprintf( __( 'AxisComposer Beta Tester requires %s to be installed.', 'axiscomposer-beta-tester' ), '<a href="http://axisthemes.com/axiscomposer/" target="_blank">AxisComposer</a>' ) . '</p></div>';
+
+	}
+
+}

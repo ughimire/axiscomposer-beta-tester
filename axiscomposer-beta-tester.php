@@ -7,7 +7,7 @@
  * Author: AxisThemes
  * Author URI: http://axisthemes.com
  * Requires at least: 4.2
- * Tested up to: 4.3
+ * Tested up to: 4.4
  *
  * Based on WP_GitHub_Updater by Joachim Kudish.
  */

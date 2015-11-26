@@ -4,7 +4,7 @@ Plugin URI: https://github.com/axisthemes/axiscomposer-beta-tester
 Contributors: axisthemes, shivapoudel
 Tags: axiscomposer, ac, beta, beta tester, bleeding edge
 Requires at least: 4.2
-Tested up to: 4.3
+Tested up to: 4.4
 Stable Tag: 1.0.0
 
 Run bleeding edge versions of AxisComposer from our Github repo. This will replace your installed version of AxisComposer with the latest tagged release on Github - use with caution, and not on production sites. You have been warned.
